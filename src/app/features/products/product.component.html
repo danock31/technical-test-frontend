@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-card class="product-card">
+    <h2>Gestión de Productos</h2>
+
+    <div class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="newProduct.name" placeholder="Nombre del producto" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input matInput type="number" [(ngModel)]="newProduct.price" placeholder="Precio" />
+      </mat-form-field>
+      <div class="label">
+        <p>Estado</p>
+        <mat-slide-toggle class="switch" [(ngModel)]="newProduct.isActive"></mat-slide-toggle>
+      </div>
+      <button mat-raised-button color="primary" (click)="addProduct()">Agregar</button>
+    </div>
+  </mat-card>
+
+  <mat-card class="tabla product-card">
+    <table mat-table [dataSource]="products" class="full-width-table">
+
+      <ng-container matColumnDef="name">
+        <th mat-header *matHeaderCellDef>Nombre</th>
+        <td *matCellDef="let p">
+          <mat-form-field appearance="outline" class="inline-field">
+            <input matInput [(ngModel)]="p.name" />
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header *matHeaderCellDef>Precio</th>
+        <td *matCellDef="let p">
+          <mat-form-field appearance="outline" class="inline-field">
+            <input matInput type="number" [(ngModel)]="p.price" />
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isActive">
+        <th mat-header *matHeaderCellDef>Estado</th>
+        <td *matCellDef="let p">
+          <mat-slide-toggle class="estado" [checked]="p.isActive" (change)="onToggleActive(p, $event.checked)"></mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header *matHeaderCellDef>Acciones</th>
+        <td *matCellDef="let p">
+          <button mat-raised-button color="accent" (click)="updateProduct(p)">Actualizar</button>
+          <button mat-raised-button color="warn" (click)="deleteProduct(p.id)">Eliminar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+</div>
