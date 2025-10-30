@@ -1,0 +1,55 @@
+
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(240, 225, 225);
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+.tabla{
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.inline-field {
+  width: 150px;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin: 0 10px 10px 0;
+}
+
+.product-card {
+  margin-top: 50px;
+  width: 800px;
+  border-radius: 20px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.label{
+  display: flex;
+  flex-direction: column;
+}
+.label p{
+  height: 4px;
+  color: rgb(76, 77, 77);
+  font-size: 12px;
+}
+.label .switch{
+  margin-bottom: 30px;
+}
+.estado{
+  margin-bottom: 25px;
+}
